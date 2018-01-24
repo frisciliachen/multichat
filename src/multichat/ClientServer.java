@@ -11,6 +11,7 @@ package multichat;
  */
 import javax.swing.*;
 
+//Class to precise who is connected : Client or Server
 public class ClientServer {
 
 	

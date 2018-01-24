@@ -17,7 +17,7 @@ import java.net.ServerSocket;
 public class MultiThreadChatServerSync {
   private static ServerSocket serverSocket = null;
   private static Socket clientSocket = null;
-  private static final int maxClientsCount = 100;
+  private static final int maxClientsCount = 10;
   private static final clientThread[] threads = new clientThread[maxClientsCount];
 
   public static void main(String args[]) {
@@ -28,6 +28,12 @@ public class MultiThreadChatServerSync {
           + "Now using port number=" + portNumber);
     } else {
       portNumber = Integer.valueOf(args[0]).intValue();
+    }
+
+    try {
+      serverSocket = new ServerSocket(portNumber);
+    } catch (IOException e) {
+      System.out.println(e);
     }
 
     while (true) {
